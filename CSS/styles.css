@@ -10,6 +10,8 @@
 --secondary-bg-color: #2F303A;
 --section-bg-color: #F5F4FA;
 
+--banner-bg-color: #C4C4C4;
+
 --primary-bg-btn: #2196F3;
 --secondary-bg-btn: #188CE8;
 
@@ -19,14 +21,22 @@
 --first-border: #ECECEC;
 
 --team-list-bg: #FFFFFF;
+
+--icon-color-accent: #FFFFFF;
+--icon-color: #AFB1B8;
+--icon-bg-color: #2196F3;
+
+--clients-bg: #F5F5F5;
+
+--icon-bg-footer: rgba(255, 255, 255, 0.1);
 }
 
 /* Плагіни та rezet */
 
 
-/* { 
+/* * { 
     outline: 2px solid cornflowerblue;
-} */
+}  */
 
 h1, h2, h3, h4, h5, h6, ul, li, p {
     margin: 0;
@@ -46,7 +56,7 @@ a {
 img {
     display: block;
 }
-/* Загальні значення */
+/* ЗАГАЛЬНІ ЗНАЧЕННЯ */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -109,7 +119,7 @@ h2, h3 {
 
 .site-nav .item:not(:last-child) {
     margin-right: 50px;
-}
+} 
 
 .header {
     border: 1px solid var(--first-border);
@@ -131,7 +141,7 @@ h2, h3 {
 
 /* navigation */
 
-.link {
+.site-nav .link {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
@@ -139,52 +149,61 @@ h2, h3 {
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
-}
 
-.nav-link {
     color: var(--secondary-text-color);
 }
-.nav-link:hover,
-.nav-link:focus {
-    color: var(--accent-text-color);
-}
+
 
 /* contact */
 
 .list-cont {
     display: flex;
-    margin-left: auto;
     align-items: center;
+    margin-left: auto;
+    gap: 30px;
 }
 
-.list-cont .item + .item {
-    margin-left: 50px;
+.item-cont .link {
+    padding: 32px 0;
+
+    display: flex;
+    align-items: center;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;  
+    margin-left: auto;
 }
 
 .cont-icon {
     fill: currentColor;
     margin-right: 10px;
-}
+} 
 
-.cont-icon:hover,
-.cont-icon:focus {
-    fill: var(--accent-color);
-}
-
-.item-cont .link {
-    color: var(--primary-text-color);
-}
-.cont-accent:hover,
-.cont-accent:focus {
+.link:hover,
+.link:focus {
     color: var(--accent-text-color);
 }
 
 /* BANNER */
 
 .banner-page {
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
-    background-color: var(--secondary-bg-color);
+    max-width: 1600px;
+    height: 600px;
+
+    background-color: var(--banner-bg-color-2);
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4) , rgba(47, 48, 58, 0.4) ),
+    url(../images/banner.jpg) ;
+    /* або можна дати перший фон за допомогою формата картинки (також працює, перевірено)
+        PNG background-image: url(../images/Overlay.png),
+    url(../images/banner.jpg) ;  */
+    background-repeat: no-repeat;
+    background-position: center;
+
+    text-align: center;
 }
 
 .banner {
@@ -231,14 +250,22 @@ h2, h3 {
 }
 
 
-/* СЕКЦІЯ з описом */
+/* СЕКЦІЯ З ОПИСОМ */
 
 .list-descr {
     display: flex;
     gap: 30px;
 }
 
+.icon-descr {
+    height: 70px;
+    width: 70px;
+    margin: 25px 100px;
+
+}
+
 .title-descr {
+    margin-top: 30px;
     margin-bottom: 10px;
 
     text-transform: uppercase;
@@ -253,7 +280,13 @@ h2, h3 {
     line-height: 1.7;
 }
 
-/* СЕКЦІЯ: Чим ми займаємося */
+
+
+/* СЕКЦІЯ: ЧИМ МИ ЗАЙМАЄМОСЯ */
+
+.doing {
+    margin-bottom: 94px;
+}
 
 .title-doing {
     margin-bottom: 50px;
@@ -264,7 +297,7 @@ h2, h3 {
     gap: 30px;
 }
 
-/* СЕКЦІЯ: Наша команда */
+/* СЕКЦІЯ: НАША КОМАНДА */
 
 .section-title {
     margin-bottom: 50px;
@@ -283,7 +316,7 @@ h2, h3 {
     background-color: var(--primary-bg-color);
 }
 
-.team-list li {
+.team-list .item {
     background: var(--team-list-bg);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
@@ -305,26 +338,96 @@ h2, h3 {
 }
 
 .text-team {
-    margin-bottom: 30px;
-
     font-weight: 400;
 }
-/* footer */
+
+/* soc-icons */
+
+.list-soc {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px 32px 30px 32px;
+}
+
+.item-soc {
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.icon-item {
+    fill: var(--icon-color);
+}
+
+.item-soc:hover,
+.item-soc:focus {
+    background: var(--icon-bg-color);
+}
+
+.icon-item:hover {
+    fill: var(--icon-color-accent);
+}
+
+/* CLIENTS */
+.clients {
+    background-color: var(--clients-bg);
+}
+
+.list-clients {
+    display: flex;
+    gap: 30px;
+}
+
+/* .item-cli:not(:last-child) {
+    margin-right: 30px;
+} */
+
+.link-cli {
+}
+
+.item-cli {
+    height: 92px;
+    width: 170px;
+    padding: 16px 32px;
+    border: 1px solid #AFB1B8;
+    border-radius: 4px;
+}
+
+.item-cli:hover {
+    border: 1px solid #2196F3;
+    border-radius: 4px;
+}
+
+.icon-cli {
+    fill: var(--icon-color);
+}
+
+/* FOOTER */
+
+.footer {
+    display: flex;
+}
 
 .page-footer {
     background-color: var(--secondary-bg-color);
 }
 
 .footer-contact {
-    padding-bottom: 60px;
+    margin: 60px 0;
 }
 
 .logo-white {
-    display: inline-block;
-    margin-bottom: 32px;
-    margin-top: 60px;
-
     color: var(--tertiary-text-color);
+}
+
+.footer-adress {
+    margin-top: 20px;
+}
+
+.adress-item:not(:last-child) {
+    margin-bottom: 9px;
 }
 
 .adress-link {
@@ -343,12 +446,51 @@ h2, h3 {
 
 .geo {
     color: var(--tertiary-text-color);
+    width: 231px;
+}
+
+/* приєднуйтесь */
+
+.text-soc {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    color: var(--tertiary-text-color);
+}
+
+.header-soc {
+    margin: 72px 0 100px 70px;
+}
+
+
+.list-join {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.item-join {
+    margin-top: 20px;
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--icon-bg-footer);
+}
+
+
+.icon-join {
+    fill: var(--icon-color-accent);
+}
+
+.item-join:hover {
+    background: var(--icon-bg-color);
 }
 
 /* для portfolio.html */
-/* filter */
 
-
+/* FILTER */
 
 .filter-list {
     display: flex;
@@ -390,6 +532,10 @@ h2, h3 {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
+}
+
+.main-item:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .main-title {
