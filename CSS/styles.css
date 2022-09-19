@@ -29,6 +29,9 @@
 --clients-bg: #F5F5F5;
 
 --icon-bg-footer: rgba(255, 255, 255, 0.1);
+
+--border-accent-clients: #2196F3;
+--client-accent-color: #2196F3;
 }
 
 /* Плагіни та rezet */
@@ -350,29 +353,31 @@ h2, h3 {
     margin: 16px 32px 30px 32px;
 }
 
-.item-soc {
+/*     margin: 16px 32px 30px 32px; */
+
+.link-soc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px;
     width: 44px;
     height: 44px;
     border-radius: 50%;
+    fill: var(--icon-color)
 }
 
-.icon-item {
-    fill: var(--icon-color);
-}
-
-.item-soc:hover,
-.item-soc:focus {
+.link-soc:hover,
+.link-soc:focus {
     background: var(--icon-bg-color);
-}
-
-.icon-item:hover {
     fill: var(--icon-color-accent);
 }
+
+/* ПРИМІТКА ДЛЯ СЕБЕ: для того щоб розщирити вплив ховера та фокуса, задається зміна одразу лінку! <a href="" class="link-soc"> */
 
 /* CLIENTS */
 .clients {
     background-color: var(--clients-bg);
+    text-align: center;
 }
 
 .list-clients {
@@ -384,25 +389,36 @@ h2, h3 {
     margin-right: 30px;
 } */
 
-.link-cli {
-}
 
-.item-cli {
-    height: 92px;
+.link-cli {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 92px;   
     width: 170px;
-    padding: 16px 32px;
+
     border: 1px solid #AFB1B8;
     border-radius: 4px;
 }
 
-.item-cli:hover {
-    border: 1px solid #2196F3;
-    border-radius: 4px;
-}
+/* 
+    padding: 16px 32px; */
 
-.icon-cli {
+.link-cli {
     fill: var(--icon-color);
 }
+
+.link-cli:hover,
+.link-cli:focus {
+    fill: var(--client-accent-color);
+}
+
+.link-cli:hover,
+.link-cli:focus {
+    border-color: var(--border-accent-clients);
+}
+
 
 /* FOOTER */
 
@@ -468,11 +484,14 @@ h2, h3 {
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-top: 20px;
 }
 
-.item-join {
-    margin-top: 20px;
-    padding: 12px;
+.link-soc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -484,7 +503,7 @@ h2, h3 {
     fill: var(--icon-color-accent);
 }
 
-.item-join:hover {
+.link-soc:hover {
     background: var(--icon-bg-color);
 }
 
